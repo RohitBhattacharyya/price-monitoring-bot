@@ -16,6 +16,19 @@ def make_cfg (filePath: os.path, section: str.lower, info: dict) -> None:
         cp.write (f)
 
 
+def update_cfg (filePath: os.path, section: str.lower, info: dict) -> None:
+    cp.read (filePath)
+
+    if section not in cp:
+        cp.add_section (section)
+
+    for key, value in info.items ():
+        cp.set (section, key, value)
+
+    with open (filePath, 'w') as f:
+        cp.write (f)
+
+
 def read_cfg (filePath: os.path, section: str.lower or None) -> dict:
     cp.read (filePath)
 
@@ -31,19 +44,6 @@ def read_cfg (filePath: os.path, section: str.lower or None) -> dict:
 
     else:
         return inf
-
-
-def update_cfg (filePath: os.path, section: str.lower, info: dict) -> None:
-    cp.read (filePath)
-
-    if section not in cp:
-        cp.add_section (section)
-
-    for key, value in info.items ():
-        cp.set (section, key, value)
-
-    with open (filePath, 'w') as f:
-        cp.write (f)
 
 
 if __name__ == '__main__':

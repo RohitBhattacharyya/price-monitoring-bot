@@ -1,9 +1,12 @@
 import os
 
+
+gitLink = 'https://github.com/RohitBhattacharyya/price-monitoring-bot.git'
 mainDir = os.path.dirname (os.path.abspath (__file__))
 pkgs = {'bs4' : 'beautifulsoup4', 'requests' : 'requests', 'csv' : 'python-csv', 'pandas' : 'pandas', 'sqlite3' : 'pysqlite3'}
 
 os.chdir (mainDir)
+
 
 def main (pkgs = pkgs):
     # check if pkgs a list or dict
@@ -25,7 +28,9 @@ def main (pkgs = pkgs):
                 os.system ('source bin/activate')
                 os.system (f"pip install {pkgs [pkg]}")
 
+
 if __name__ == '__main__':
     main ()
+
 
 # THE END
